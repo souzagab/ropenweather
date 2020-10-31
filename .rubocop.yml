@@ -254,7 +254,7 @@ Style/NonNilCheck:
   IncludeSemanticChanges: false
 
 Style/MethodCallWithArgsParentheses:
-  Enabled: true
+  Enabled: false
   IgnoreMacros: true
   IgnoredMethods:
   - require
