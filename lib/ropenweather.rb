@@ -2,7 +2,6 @@
 
 require 'ropenweather/version'
 require 'ropenweather/client'
-require 'ropenweather/base'
 
 module Ropenweather
 end
