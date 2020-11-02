@@ -14,7 +14,7 @@ module Ropenweather
 
     rescue => exception
       # TODO: Isolate Exception handler in method
-      message = exception.body
+      message = exception.message
 
       case exception.class.to_s
 

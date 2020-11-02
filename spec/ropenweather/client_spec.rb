@@ -47,13 +47,32 @@ RSpec.describe Ropenweather::Client do
     end
 
     describe 'sucesfull response', :vcr do
-      let(:response) { client.current_weather(city: 'Campinas') }
-      let(:response_keys) { %i(name weather main coord base visibility wind clouds dt sys timezone id cod) }
 
-      it 'has expected keys' do
-        expect(response).not_to be_nil
-        response_keys.each do |key|
-          expect(response).to have_key(key)
+      describe 'weather' do
+        let(:response) { client.current_weather(city: 'Campinas') }
+        let(:response_keys) { %i(name weather main coord base visibility wind clouds dt sys timezone id cod) }
+
+        it 'has expected keys' do
+          expect(response).not_to be_nil
+          response_keys.each do |key|
+            expect(response).to have_key(key)
+          end
+        end
+      end
+
+      describe 'forecast' do
+        let(:response) { client.current_weather(city: 'Campinas', action:'forecast') }
+        let(:response_keys) { %i(cod message cnt list) }
+
+        it 'has expected keys' do
+          expect(response).not_to be_nil
+          response_keys.each do |key|
+            expect(response).to have_key(key)
+          end
+        end
+
+        it 'returns a list of forecasts' do
+          expect(response[:list].size).to eq(40)
         end
       end
     end

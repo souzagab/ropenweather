@@ -17,8 +17,8 @@ module Ropenweather
       self.units = units
     end
 
-    def current_weather(city:)
-      execute(city: city, action: 'weather', config: config_params)
+    def current_weather(city:, action: 'weather')
+      execute(city: city, action: action, config: config_params)
     end
 
     private

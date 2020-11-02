@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.openweathermap.org/data/2.5/weather?appid=api-key&lang=en&q=Campinas&units=metric
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (linux-gnu x86_64) ruby/2.7.1p83
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - api.openweathermap.org
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Mon, 02 Nov 2020 01:36:32 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '455'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/data/2.5/weather?lang=en&q=campinas&units=metric"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '{"coord":{"lon":-47.06,"lat":-22.91},"weather":[{"id":800,"main":"Clear","description":"clear
+        sky","icon":"01n"}],"base":"stations","main":{"temp":15,"feels_like":12.17,"temp_min":15,"temp_max":15,"pressure":1018,"humidity":72},"visibility":10000,"wind":{"speed":4.1,"deg":130},"clouds":{"all":0},"dt":1604280738,"sys":{"type":1,"id":8393,"country":"BR","sunrise":1604218962,"sunset":1604265649},"timezone":-10800,"id":3467865,"name":"Campinas","cod":200}'
+  recorded_at: Mon, 02 Nov 2020 01:36:32 GMT
+recorded_with: VCR 6.0.0
