@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
+require_relative 'agent'
+
 module Ropenweather
   class Client
-    DEFAULT_BASE_URI = 'http://api.openweathermap.org/data/2.5/'
+    DEFAULT_BASE_URI = 'http://api.openweathermap.org/data/2.5'
+
+    include Ropenweather::Agent
 
     attr_accessor :api_key, :base_uri, :lang, :units
 
@@ -11,6 +15,16 @@ module Ropenweather
       self.base_uri = base_uri
       self.lang = lang
       self.units = units
+    end
+
+    def current_weather(city:)
+      execute(city: city, action: 'weather', config: config_params)
+    end
+
+    private
+
+    def config_params
+      { appid: api_key, lang: lang, units: units }
     end
   end
 end
