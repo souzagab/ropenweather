@@ -27,14 +27,18 @@ bundle install
 
 ## Uso
 Essa gem usa a api do OpenWeatherMap e você precisa se registrar e pegar suas chaves  [aqui](https://home.openweathermap.org/api_keys).
-### Instancia
-Para utilizar essa gem você precisará criar uma instancia da classe `Ropenweather::Client`, seu construtor pode : `api_key, base_uri, lang, units`.
-|  parâmetro| obrigatório|valor padrão|valores válidos|
-|--|--|--|--|--|
-| `api_key`|sim||chave de api|
-|`base_uri`|não|`http://api.openweathermap.org/data/2.5`|url api|
-|`lang`|não|`en`|verifique os valores [aqui](https://openweathermap.org/current#data)
-|`units`|não|`metric`|``standard metric imperial``
+
+### Nova instância
+
+Para utilizar essa gem você precisará criar uma instancia da classe `Ropenweather::Client`, seu construtor pode receber estes quatro parâmetros: `api_key, base_uri, lang, units`.
+
+|  parâmetro | obrigatório | valor padrão | valores válidos |
+| --- | --- | --- | --- |
+| `api_key` | sim || chave de api |
+| `base_uri` | não | `http://api.openweathermap.org/data/2.5` | api url |
+| `lang` | não | `en` | valores aceitos [aqui](https://openweathermap.org/current#data) |
+| `units` | não | `metric` | ``standard metric imperial`` |
+
 
 #### Exemplo
 

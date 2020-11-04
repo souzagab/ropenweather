@@ -3,6 +3,7 @@
 # Ropenweather :gem:
 A Ruby Wrapper to the OpenWeatherMap API
 
+This readme is available in [pt-br](README.pt-br.md)
 
 ## Installation
 This gem is only available for development, so you can clone the repo and build it yourself:
@@ -27,14 +28,17 @@ bundle install
 
 ## Usage
 This gem uses OpenWeatherMap API and you need to register and get it  [here](https://home.openweathermap.org/api_keys).
+
 ### Instance
+
 To use this gem, you will need to create an instance of the `Ropenweather::Client` class, the constructor can receive four parameters: `api_key, base_uri, lang, units`.
-|  param| required |default |accepted values|
-|--|--|--|--|--|
-| `api_key`|yes||api-key from openweathermap|
-|`base_uri`|no|`http://api.openweathermap.org/data/2.5`|api url|
-|`lang`|no|`en`|check the accepted values [here](https://openweathermap.org/current#data)
-|`units`|no|`metric`|``standard metric imperial``
+
+| param | required | default | accepted values |
+| --- | --- | --- | --- |
+| `api_key` | yes || api-key from openweathermap |
+| `base_uri` | no | `http://api.openweathermap.org/data/2.5` | api url |
+| `lang` | no | `en` | check the accepted values [here](https://openweathermap.org/current#data) |
+| `units` | no | `metric` | ``standard metric imperial`` |
 
 #### Example
 
