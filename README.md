@@ -1,67 +1,79 @@
-[![Build Status](https://travis-ci.org/souzagab/ropenweather.svg?branch=main)](https://travis-ci.org/souzagab/ropenweather)
 
-# Ropenweather
+
+# Ropenweather :gem:
 A Ruby Wrapper to the OpenWeatherMap API
 
 
 ## Installation
+This gem is only available for development, so you can clone the repo and build it yourself:
 
 
 
-Add this line to your Gemfile:
-
-
-
+```
+git clone https://github.com/souzagab/ropenweather.git
+cd ropenweather
+bundle exec rake install
+```
+Or reference the repo in your Gemfile:
 ```ruby
-gem  'ropenweather'
+gem  'ropenweather', git:  'https://github.com/souzagab/ropenweather.git'
 ```
 
 And then execute:
 ```
-$ bundle install
+bundle install
 ```
 
 
-Or install it yourself as:
+## Usage
+This gem uses OpenWeatherMap API and you need to register and get it  [here](https://home.openweathermap.org/api_keys).
+### Instance
+To use this gem, you will need to create an instance of the `Ropenweather::Client` class, the constructor can receive four parameters: `api_key, base_uri, lang, units`.
+|  param| required |default |accepted values|
+|--|--|--|--|--|
+| `api_key`|yes||api-key from openweathermap|
+|`base_uri`|no|`http://api.openweathermap.org/data/2.5`|api url|
+|`lang`|no|`en`|check the accepted values [here](https://openweathermap.org/current#data)
+|`units`|no|`metric`|``standard metric imperial``
 
-```
-$ gem install ropenweather
-```
+#### Example
 
+    client = Ropenweather::Client.new(api_key:'y0ur-4pi-k3y',lang:'pt_br')
 
-## Configuration
+### Today's [Current Weather](https://openweathermap.org/current)
+Returns an hash
 
+    client = Ropenweather::Client.new(api_key:'y0ur-4pi-k3y',lang:'pt_br')
+    client.get_weather(city:'London')
 
+#### [Forecast](https://openweathermap.org/forecast5) (5 days )
+Returns an hash with an list of forecasts
 
-TODO: Add configuration instructions.
-
+    client = Ropenweather::Client.new(api_key:'y0ur-4pi-k3y',lang:'pt_br')
+    response = client.get_weather(city:'London', action:'forecast')
+    response[:list] # Array of forecasts
 
 
 ## Development
 
+After cloning, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 
 ## Contributing
 
-  TODO:  Add Contributing
+   This project is at the beginning of development and has a lot to be improved, contributions are welcome, and here is a list of possible improvements:
+
+
+ - [ ] Wrap the api response in a class
+ - [ ] Improve error handling
+ - [ ] Validate method params ( format )
+
+And more..
 
 ## License
 
-
-
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-
-
-## Code of Conduct
-
-
-
-Everyone interacting in the Ropenweather project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/ropenweather/blob/master/CODE_OF_CONDUCT.md).
