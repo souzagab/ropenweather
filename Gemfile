@@ -11,3 +11,4 @@ gem 'vcr', '~> 6.0'
 gem 'webmock', '~> 3.9', '>= 3.9.3'
 gem 'dotenv'
 gem 'coveralls', require: false
+gem 'simplecov', require: false, group: :test
